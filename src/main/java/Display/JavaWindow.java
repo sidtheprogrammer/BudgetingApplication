@@ -4,14 +4,18 @@ import javax.swing.*;
 import java.util.Optional;
 
 public class JavaWindow {
+    int salaryAsInt;
+    int rentAsInt;
+    int spendingAsInt;
 
     public int getSalaryWindow() {
 
         JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         String salary = JOptionPane.showInputDialog(frame, "Enter your salary", null);
+        frame.setDefaultCloseOperation(JOptionPane.CLOSED_OPTION);
         Optional<String> salaryAsOptional = Optional.ofNullable(salary);
-        int salaryAsInt =  salaryAsOptional.isPresent() ?  Integer.parseInt(salaryAsOptional.get()) : 0 ;
+        salaryAsInt =  salaryAsOptional.isPresent() ?  Integer.parseInt(salaryAsOptional.get()) : 0 ;
         if("".equals(salary)){
             salaryAsInt=0;
         }
@@ -23,10 +27,10 @@ public class JavaWindow {
     public int getRentWindow(){
 
         JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         String rent = JOptionPane.showInputDialog(frame, "Enter your rent", null);
+        frame.setDefaultCloseOperation(JOptionPane.CLOSED_OPTION);
         Optional<String> rentAsOptional = Optional.ofNullable(rent);
-        int rentAsInt =  rentAsOptional.isPresent() ?  Integer.parseInt(rentAsOptional.get()) : 0 ;
+        rentAsInt =  rentAsOptional.isPresent() ?  Integer.parseInt(rentAsOptional.get()) : 0 ;
         if("".equals(rent)){
             rentAsInt=0;
         }
@@ -35,4 +39,29 @@ public class JavaWindow {
     }
 
 
+    public int getSpendingWindow(){
+
+        JFrame frame = new JFrame();
+        String spending = JOptionPane.showInputDialog(frame, "Enter how much you would spend per week", null);
+        frame.setDefaultCloseOperation(JOptionPane.CLOSED_OPTION);
+        Optional<String> spendingAsOptional = Optional.ofNullable(spending);
+        spendingAsInt =  spendingAsOptional.isPresent() ?  Integer.parseInt(spendingAsOptional.get()) : 0 ;
+        if("".equals(spending)){
+            spendingAsInt=0;
+        }
+        JOptionPane.showMessageDialog(null, "You entered " + spendingAsInt*4);
+        return spendingAsInt*4;
+    }
+
+    public int getSalaryAsInt(){
+        return salaryAsInt;
+    }
+
+    public int getRentAsInt() {
+        return rentAsInt;
+    }
+
+    public int getSpendingAsInt() {
+        return spendingAsInt;
+    }
 }

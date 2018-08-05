@@ -1,3 +1,4 @@
+import Display.FullDisplay;
 import Display.JavaWindow;
 
 import javax.swing.*;
@@ -16,7 +17,15 @@ public class MainThing {
 
         System.out.println("The rent you entered was " + rent);
 
+        int spending = javaWindow.getSpendingWindow();
 
+        System.out.println("You entered " + spending);
+
+        Calculations cal = new Calculations(sal);
+       double cost =  cal.ni()+cal.student()+cal.tax();
+
+
+       new FullDisplay();
 
 
     }
