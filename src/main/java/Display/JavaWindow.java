@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public class JavaWindow {
 
-    public int getWindow() throws NullPointerException {
+    public int getSalaryWindow() {
 
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -15,14 +15,24 @@ public class JavaWindow {
         if("".equals(salary)){
             salaryAsInt=0;
         }
+        JOptionPane.showMessageDialog(null, "You entered " + salaryAsInt);
         return salaryAsInt;
     }
 
-         /*
-        frame.setSize(400, 400);
-        frame.setResizable(true);
-        frame.pack();
+
+    public int getRentWindow(){
+
+        JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        */
+        String rent = JOptionPane.showInputDialog(frame, "Enter your rent", null);
+        Optional<String> rentAsOptional = Optional.ofNullable(rent);
+        int rentAsInt =  rentAsOptional.isPresent() ?  Integer.parseInt(rentAsOptional.get()) : 0 ;
+        if("".equals(rent)){
+            rentAsInt=0;
+        }
+        JOptionPane.showMessageDialog(null, "You entered " + rentAsInt);
+        return rentAsInt;
+    }
+
+
 }
